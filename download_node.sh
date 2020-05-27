@@ -8,11 +8,6 @@ _ARCH=`arch`
 echo "================    Downloading NodeJS    ================"
 echo "  - Your Arch is: $_ARCH"
 
-#apt-get update
-#apt-get install git-core libnss-mdns libavahi-compat-libdnssd-dev -y
-#wget http://node-arm.herokuapp.com/node_latest_armhf.deb
-#dpkg -i node_latest_armhf.deb
-
 _URL="https://nodejs.org/dist"
 _DIST="latest"
 _MAJOR_VERSION=100
@@ -37,6 +32,7 @@ download_install()
   node -v
   npm -v
   cd -
+  npm install -g node-gyp
   echo "================    DONE!    ================"
 
   exit
@@ -65,8 +61,3 @@ do
   check_if_exists "latest-v$_MAJOR_VERSION.x"
 done
 
-#TODO: Test now if is not empty
-
-#node -v
-#npm -v
-#npm install -g node-gyp
